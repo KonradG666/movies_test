@@ -10,7 +10,7 @@ def call_tmdb(endpoint):
    return response.json()
 
 def get_popular_movies():
-    return call_tmdb(f"movie/popular")
+    return call_tmdb(f"movie/popular")code
 
 def get_movies_list(list_type):
     return call_tmdb(f"movie/{list_type}")
@@ -27,7 +27,10 @@ def get_single_movie(movie_id):
     return call_tmdb(f"movie/{movie_id}")
 
 def get_single_movie_cast(movie_id):
-    return call_tmdb(f"movie/{movie_id}/cast")
+    endpoint = f"https://api.themoviedb.org/3/movie/{movie_id}/credits"
+    headers = {"Authorization": f"Bearer {API_TOKEN}"}
+    response = requests.get(endpoint, headers=headers)
+    return response.json()["cast"]
 
 def get_movie_images(movie_id):
     return call_tmdb(f"movie/{movie_id}/images")
