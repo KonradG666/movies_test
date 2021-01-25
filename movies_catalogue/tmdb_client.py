@@ -1,6 +1,6 @@
-import requests
+import requests, os
 
-API_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NzM4OWQwZjdlNmI5NjJkYTgyZWRhM2FkMjcwOTg4MCIsInN1YiI6IjVmZWIwYTNlZDQwZDRjMDAzZTg1MjYwZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0kD6RaCKMHdn9ydafXlSLgypfmCHiVUqKcrV85oLOcU"
+API_TOKEN = os.environ.get("TMDB_API_TOKEN", "")
 
 def call_tmdb(endpoint):
    full_url = f"https://api.themoviedb.org/3/{endpoint}"
