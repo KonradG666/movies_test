@@ -2,7 +2,7 @@ from main import app
 from unittest.mock import Mock
 import pytest
 
-@pytest.mark.parametrize("list_type", ("top_rated", "upcoming", "popular", "now_playing"))
+@pytest.mark.parametrize("list_type", ("popular", "top_rated", "upcoming", "now_playing"))
 def test_movies_list(monkeypatch, list_type):
     api_mock = Mock(return_value={"results": []})
     monkeypatch.setattr("tmdb_client.call_tmdb", api_mock)
