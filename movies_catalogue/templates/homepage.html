@@ -17,7 +17,7 @@
     	<a href="{{ url_for('homepage', list_type="upcoming") }}" class="btn btn-outline-info" role="button" aria-pressed="true">Upcoming</a>
         {% for list in list_type %}
                 {% if list_type == popular %}
-                    <a href="{{ url_for('homepage', list_type=popular) }}" class="btn btn-outline-info"> {{ popular }}</a>
+                    <a href="{{ url_for('homepage', list_type=choosen_list) }}" class="btn btn-primary"> {{ popular }}</a>
 		{% elif list_type == top_rated %}
 		     <a href="{{ url_for('homepage', list_type=top_rated) }}" class="btn btn-outline-info"> {{ top_rated }}</a>
 		{% elif list_type == now_playing %}

@@ -1,8 +1,7 @@
 import requests
 import os
 
-API_TOKEN = API_TOKEN = os.environ.get("TMDB_API_TOKEN", "")
-
+API_TOKEN = os.environ.get("TMDB_API_TOKEN", "")
 
 def call_tmdb(endpoint):
    full_url = f"https://api.themoviedb.org/3/{endpoint}"
