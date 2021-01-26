@@ -21,16 +21,16 @@ def test_get_single_movie(monkeypatch):
 
 
 def test_get_single_movie_cast(monkeypatch):
-    mock_single_movie_cast = "actor_name"
-    cast_single_movie_mock = Mock()
-    cast_single_movie_mock.return_value = mock_single_movie_cast
-    monkeypatch.setattr("tmdb_client.get_single_movie", cast_single_movie_mock)
-    single_movie_cast = tmdb_client.get_single_movie(419704)
+    mock_single_movie_cast = "movie1"
+    request_mock = Mock()
+    request_mock.return_value = mock_single_movie_cast
+    monkeypatch.setattr("tmdb_client.get_single_movie_cast", request_mock)
+    single_movie_cast = tmdb_client.get_single_movie_cast(419704)
     assert single_movie_cast == mock_single_movie_cast
 
 
 def test_get_movie_images(monkeypatch):
-    mock_movie_images = "image"
+    mock_movie_images = "movie1"
     movie_images_mock = Mock()
     movie_images_mock.return_value = mock_movie_images
     monkeypatch.setattr("tmdb_client.get_movie_images", movie_images_mock)
