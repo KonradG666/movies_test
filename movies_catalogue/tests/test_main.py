@@ -10,6 +10,6 @@ def test_movies_list(monkeypatch, list_type):
     with app.test_client() as client:
         response = client.get("/")
         assert response.status_code == 200
-
+        api_mock.assert_called_once_with("movie/popular")
 
 
