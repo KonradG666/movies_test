@@ -1,7 +1,7 @@
 import requests
 import os
 
-API_TOKEN = os.environ.get("TMDB_API_TOKEN", "")
+API_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZGVhMmY5YzRmZWI4NjE1Mzg1ZTc0MmNlNGM2NTczNCIsInN1YiI6IjVmZWVmNmNlMmRkYTg5MDA0MGYxZWZjMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jDODTh6PlIeTYrDKXypWn4BOSW4Mj2khyuqrQzu-lgE"
 
 def call_tmdb(endpoint):
    full_url = f"https://api.themoviedb.org/3/{endpoint}"
@@ -28,10 +28,7 @@ def get_single_movie(movie_id):
     return call_tmdb(f"movie/{movie_id}")
 
 def get_single_movie_cast(movie_id):
-    endpoint = f"https://api.themoviedb.org/3/movie/{movie_id}/credits"
-    headers = {"Authorization": f"Bearer {API_TOKEN}"}
-    response = requests.get(endpoint, headers=headers)
-    return response.json()['cast']
+    return call_tmdb(f"movie/{movie_id}/credits")
 
 def get_movie_images(movie_id):
     return call_tmdb(f"movie/{movie_id}/images")
