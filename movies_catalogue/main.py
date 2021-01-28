@@ -4,11 +4,11 @@ import random
 
 app = Flask(__name__)
 
-available_lists = ["popular", "upcoming", "top_rated", "now_playing"]
+
 
 @app.route('/')
 def homepage():
-    type = {1 : "popular", 2 : "top_rated", 3 : "upcoming", 4 : 'now_playing'}
+    available_lists = ["popular", "upcoming", "top_rated", "now_playing"]
     choosen_list = request.args.get('list_type', "popular")
     if choosen_list not in available_lists:
         choosen_list = available_lists[0]

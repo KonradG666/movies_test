@@ -28,7 +28,7 @@ def get_single_movie(movie_id):
     return call_tmdb(f"movie/{movie_id}")
 
 def get_single_movie_cast(movie_id):
-    return call_tmdb(f"movie/{movie_id}/credits")
+    return call_tmdb(f"movie/{movie_id}/credits")["cast"]
 
 def get_movie_images(movie_id):
     return call_tmdb(f"movie/{movie_id}/images")
