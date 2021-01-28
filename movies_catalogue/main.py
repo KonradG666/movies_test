@@ -4,8 +4,6 @@ import random
 
 app = Flask(__name__)
 
-
-
 @app.route('/')
 def homepage():
     available_lists = ["popular", "upcoming", "top_rated", "now_playing"]
@@ -14,7 +12,7 @@ def homepage():
         choosen_list = available_lists[0]
     movies = tmdb_client.get_movies(how_many=8, list_type=choosen_list)
     random.shuffle(movies)
-    return render_template("homepage.html", movies=movies, choosen_list=choosen_list, type=type)
+    return render_template("homepage.html", movies=movies, choosen_list=choosen_list, available_lists=available_lists)
 
 
 @app.route("/movie/<movie_id>")

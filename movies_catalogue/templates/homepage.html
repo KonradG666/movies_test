@@ -11,14 +11,14 @@
    </div>
    <div class="col-lg-12 mb-4">
      <div class="btn-group" role="group">
-    	{% for list_type in available_lists %}
-       		  {% if list_type == choosen_list %}
+	{% for list_type in available_lists %}
+          	{% if list_type == choosen_list %}
             		<a href="{{ url_for('homepage', list_type=list_type) }}" class="btn btn-outline-info active">{{ list_type}}</a>
-         	  {% else %}
+          	{% else %}
             		<a href="{{ url_for('homepage', list_type=list_type) }}" class="btn btn-outline-info">{{ list_type}}</a>
-        	  {% endif %}
-    	{% endfor %}    
-     </div>
+          	{% endif %}
+    	{% endfor %} 
+     </div> 
    </div>
    {% for movie in movies %}
    <div class="col-lg-3 col-md-6 mb-4">
