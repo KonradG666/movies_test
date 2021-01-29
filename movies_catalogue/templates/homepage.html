@@ -13,9 +13,9 @@
      <div class="btn-group" role="group">
 	{% for list_type in available_lists %}
           	{% if list_type == choosen_list %}
-            		<a href="{{ url_for('homepage', list_type=list_type) }}" class="btn btn-outline-info active">{{ list_type}}</a>
+            		<a href="{{ url_for('homepage', list_type=list_type) }}" class="btn btn-outline-info active">{{ list_type|replace("_", " ") }}</a>
           	{% else %}
-            		<a href="{{ url_for('homepage', list_type=list_type) }}" class="btn btn-outline-info">{{ list_type}}</a>
+            		<a href="{{ url_for('homepage', list_type=list_type) }}" class="btn btn-outline-info">{{ list_type|replace("_", " ") }}</a>
           	{% endif %}
     	{% endfor %} 
      </div> 
