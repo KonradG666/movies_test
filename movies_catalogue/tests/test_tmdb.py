@@ -18,7 +18,6 @@ def test_get_single_movie(monkeypatch):
     single_movie = tmdb_client.get_single_movie(419704)
     assert single_movie == mock_single_movie
 
-
 def test_get_single_movie_cast(monkeypatch):
     mock_single_movie_cast = "movie1"
     single_movie_cast_mock = Mock()

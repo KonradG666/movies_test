@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     available_lists = ["popular", "upcoming", "top_rated", "now_playing"]
-    choosen_list = request.args.get('list_type')
+    choosen_list = request.args.get('list_type', 'popular')
     if choosen_list not in available_lists:
         choosen_list = available_lists[0]
     movies = tmdb_client.get_movies(how_many=8, list_type=choosen_list)
